@@ -1,9 +1,15 @@
 <template>
   <Header />
   <Navbar />
+  <button @click="menu = 'home'">Home</button>
+  <button @click="menu = 'login'">Login</button>
   <div class="main">
-    <div class="articles">
-      <Article v-for="n in 10" :key="n" />
+    <div class="page">
+      <HomePage v-if="menu == 'home'" />
+      <LoginPage v-else-if="menu == 'login'" />
+      <template v-else>
+        <h3>404 Not Found</h3>
+      </template>
     </div>
     <div class="sidebar">
       <Widget v-for="n in 10" :key="n" />
@@ -15,14 +21,21 @@
 <script>
 import Header from "./components/Header.vue";
 import Navbar from "./components/Navbar.vue";
-import Article from "./components/Article.vue";
 import Widget from "./components/Widget.vue";
+import HomePage from "./pages/Home.vue";
+import LoginPage from "./pages/Login.vue";
 
 export default {
+  data() {
+    return {
+      menu: 'home'
+    }
+  },
   components: {
     Header,
     Navbar,
-    Article,
+    HomePage,
+    LoginPage,
     Widget,
   }
 };
@@ -33,7 +46,7 @@ div.main {
   display: flex;
 }
 
-div.articles {
+div.page {
   flex: 3;
 }
 
