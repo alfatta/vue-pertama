@@ -26,12 +26,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(pegawai, i) in listPegawaiAdv">
-        <td>{{ i + 1 }}</td>
-        <td>{{ pegawai.nama }}</td>
-        <td>{{ pegawai.usia }}</td>
-        <td align="center">{{ pegawai.jmlAnak }}</td>
-      </tr>
+      <template v-for="(pegawai, i) in listPegawaiAdv">
+        <tr v-if="pegawai.jmlAnak > 0">
+          <td>{{ i + 1 }}</td>
+          <td>{{ pegawai.nama }}</td>
+          <td>{{ pegawai.usia }}</td>
+          <td align="center">{{ pegawai.jmlAnak }}</td>
+        </tr>
+      </template>
     </tbody>
   </table>
 
