@@ -3,10 +3,12 @@
   <Navbar />
   <button @click="menu = 'home'">Home</button>
   <button @click="menu = 'login'">Login</button>
+  <button @click="menu = 'todo'">Todo</button>
   <div class="main">
     <div class="page">
       <HomePage v-if="menu == 'home'" />
       <LoginPage v-else-if="menu == 'login'" />
+      <TodoPage v-else-if="menu == 'todo'" />
       <template v-else>
         <h3>404 Not Found</h3>
       </template>
@@ -24,6 +26,7 @@ import Navbar from "./components/Navbar.vue";
 import Widget from "./components/Widget.vue";
 import HomePage from "./pages/Home.vue";
 import LoginPage from "./pages/Login.vue";
+import TodoPage from "./pages/Todo.vue";
 
 export default {
   data() {
@@ -36,6 +39,7 @@ export default {
     Navbar,
     HomePage,
     LoginPage,
+    TodoPage,
     Widget,
   }
 };
