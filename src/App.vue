@@ -12,6 +12,29 @@
     <p>Usia anda tidak diatas 20</p>
   </template>
 
+  <ul>
+    <li v-for="(pegawai, i) in listPegawai">{{ pegawai }} - {{ i + 1 }}</li>
+  </ul>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Usia</th>
+        <th>Jumlah Anak</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(pegawai, i) in listPegawaiAdv">
+        <td>{{ i + 1 }}</td>
+        <td>{{ pegawai.nama }}</td>
+        <td>{{ pegawai.usia }}</td>
+        <td align="center">{{ pegawai.jmlAnak }}</td>
+      </tr>
+    </tbody>
+  </table>
+
   <p>Terima kasih</p>
 </template>
 
@@ -19,6 +42,12 @@
 export default {
   data() {
     return {
+      listPegawai: ["andi", "budi", "caca"],
+      listPegawaiAdv: [
+        { nama: "Andi", usia: 20, jmlAnak: 3 },
+        { nama: "Budi", usia: 20, jmlAnak: 0 },
+        { nama: "Caca", usia: 20, jmlAnak: 2 },
+      ],
       usia: 20,
     };
   },
