@@ -26,7 +26,9 @@
       </tr>
     </thead>
     <tbody>
-      <template v-for="(pegawai, i) in listPegawaiAdv">
+      <template
+        v-for="(pegawai, i) in listPegawaiAdv"
+        :key="pegawai.nip">
         <tr v-if="pegawai.jmlAnak > 0">
           <td>{{ i + 1 }}</td>
           <td>{{ pegawai.nama }}</td>
@@ -46,9 +48,9 @@ export default {
     return {
       listPegawai: ["andi", "budi", "caca"],
       listPegawaiAdv: [
-        { nama: "Andi", usia: 20, jmlAnak: 3 },
-        { nama: "Budi", usia: 20, jmlAnak: 0 },
-        { nama: "Caca", usia: 20, jmlAnak: 2 },
+        { nip: "KX12", nama: "Andi", usia: 20, jmlAnak: 3 },
+        { nip: "CD98", nama: "Budi", usia: 20, jmlAnak: 0 },
+        { nip: "PQ52", nama: "Caca", usia: 20, jmlAnak: 2 },
       ],
       usia: 20,
     };
