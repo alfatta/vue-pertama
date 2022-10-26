@@ -39,6 +39,10 @@
     </tbody>
   </table>
 
+  <p v-for="(value, key, i) in pegawaiTerbaik">
+    {{ key }}: {{ value}}
+  </p>
+
   <p>Terima kasih</p>
 </template>
 
@@ -52,6 +56,12 @@ export default {
         { nip: "CD98", nama: "Budi", usia: 20, jmlAnak: 0 },
         { nip: "PQ52", nama: "Caca", usia: 20, jmlAnak: 2 },
       ],
+      pegawaiTerbaik: {
+        nip: "KX12",
+        nama: "Andi",
+        usia: 20,
+        jmlAnak: 3 
+      },
       usia: 20,
     };
   },
