@@ -1,46 +1,36 @@
 <template>
-  <p>Nama saya {{ nama }}</p>
-  <!-- <input type="text" v-model="nama" /> -->
-  <input type="text" v-model="namaDepan" placeholder="nama depan" />
-  <input type="text" v-model="namaBelakang" placeholder="nama belakang" />
-  <button @click="clearNama">Reset</button>
+  <p>Usia saya : {{ usia }} tahun</p>
+  <input type="number" v-model.number="usia" />
+
+  <p v-if="usia < 20">
+    Usia anda dibawah 20 tahun ( pakai v-if )
+  </p>
+  <h1 v-else-if="usia == 31">
+    Usia anda 31 ya?
+  </h1>
+  <p :style="{color: 'purple'}" v-else-if="usia >= 20">
+    Usia anda diatas 20 tahun
+  </p>
+  <div>
+    <p v-if="usia == 900">ini coba coba</p>
+    <p v-else>
+      Usia anda diatas 20 tahun
+    </p>
+  </div>
+
+  <p v-show="usia < 20">
+    Usia anda dibawah 20 tahun ( pakai v-show )
+  </p>
+
+  <p>Terima kasih</p>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      namaDepan: "",
-      namaBelakang: "",
+      usia: 20,
     };
-  },
-  methods: {
-    clearNama() {
-      this.namaDepan = "";
-      this.namaBelakang = "";
-    },
-  },
-  computed: {
-    nama() {
-      return this.namaDepan + " " + this.namaBelakang;
-    },
-    // nama: {
-    //   set(value) {
-    //     const list = value.split(" ");
-    //     console.log(value, list);
-    //     this.namaDepan = list[0] || "";
-    //     this.namaBelakang = list[1..] || "";
-    //   },
-    //   get() {
-    //     return this.namaDepan + " " + this.namaBelakang;
-    //   },
-    // },
   },
 };
 </script>
-
-<style scoped>
-p {
-  color: red;
-}
-</style>
