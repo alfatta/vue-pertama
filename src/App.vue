@@ -14,7 +14,9 @@
       </template>
     </div>
     <div class="sidebar">
-      <Widget v-for="n in 10" :key="n" />
+      <!-- <Widget :value="angka" @update="(n) => angka = n" /> -->
+        <p>{{ title }}</p>
+      <Widget v-model="angka" v-model:title="title" />
     </div>
   </div>
   <div class="footer"></div>
@@ -31,7 +33,9 @@ import TodoPage from "./pages/Todo.vue";
 export default {
   data() {
     return {
-      menu: 'home'
+      menu: 'home',
+      angka: 0,
+      title: ''
     }
   },
   components: {

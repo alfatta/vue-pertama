@@ -1,19 +1,17 @@
 <template>
 <div class="widget">
   <h3>Widget</h3>
-  <button @click="angka--">-</button>
-  <span>Angkanya {{ angka }}</span>
-  <button @click="angka++">+</button>
+  <button @click="$emit('update:modelValue', modelValue - 1)">-</button>
+  <span>Angkanya {{ modelValue }}</span>
+  <button @click="$emit('update:modelValue', modelValue + 1)">+</button>
+  <input type="text" :value="title" @input="$emit('update:title', $event.target.value)">
 </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      angka: 0,
-    }
-  },
+  props: ['modelValue', 'title'],
+  emits: ['update:modelValue', 'update:title'],
 }
 </script>
 
