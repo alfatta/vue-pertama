@@ -1,12 +1,21 @@
 <template>
 <div class="article">
-  <h2>Ini judul</h2>
-  <p>Ini body</p>
+  <h2>{{ data.title }}</h2>
+  <p>{{ data.body }}</p>
 </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    data: {
+      type: Object,
+      default(raw) {
+        return { title: '-', body: '-' }
+      }
+    }
+  }
+}
 </script>
 
 <style>

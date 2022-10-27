@@ -1,5 +1,15 @@
 <template>
-  <MyCustomParagraph />
+  <MyCustomParagraph
+    title="Ini Halaman Login"
+    warna="success"
+    pakaiKotak />
+
+  <MyCustomParagraph
+    v-for="(info, i) in informasi" :key="i"
+    :title="info" />
+
+  <MyCustomParagraph :title="undefined" />
+  <MyCustomParagraph title="" />
 
   <input type="text" ref="username" v-model="username">
   <input type="text" ref="password">
@@ -12,7 +22,12 @@
 export default {
   data() {
     return {
-      username: 'test'
+      username: 'test',
+      informasi: [
+        "berita 1",
+        "berita 2",
+        "berita 3",
+      ]
     }
   },
   mounted() {
