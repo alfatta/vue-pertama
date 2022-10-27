@@ -17,6 +17,7 @@
       <!-- <Widget :value="angka" @update="(n) => angka = n" /> -->
         <p>{{ title }}</p>
       <Widget v-model="angka" v-model:title="title" />
+      <ProductList />
     </div>
   </div>
   <div class="footer"></div>
@@ -26,6 +27,7 @@
 import Header from "./components/Header.vue";
 import Navbar from "./components/Navbar.vue";
 import Widget from "./components/Widget.vue";
+import ProductList from "./components/ProductList.vue";
 import HomePage from "./pages/Home.vue";
 import LoginPage from "./pages/Login.vue";
 import TodoPage from "./pages/Todo.vue";
@@ -42,6 +44,7 @@ export default {
     Header,
     Navbar,
     HomePage,
+    ProductList,
     LoginPage,
     TodoPage,
     Widget,

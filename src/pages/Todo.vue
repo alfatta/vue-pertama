@@ -16,6 +16,8 @@
     btn-
   </template>
 </Button>
+
+<p>{{ todoList.join(', ') }}</p>
 </template>
 
 <script>
@@ -50,6 +52,31 @@ export default {
     TodoList,
     TodoItem,
     Button,
-  }
+  },
+
+  beforeCreate() {
+    console.log('beforeCreate')
+  },
+  created() {
+    console.log('created')
+  },
+  beforeMount() {
+    console.log('beforeMount')
+  },
+  mounted() {
+    console.log('mounted')
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate')
+  },
+  updated() {
+    console.log('updated')
+  },
+  beforeUnmount() {
+    console.log('beforeUnmount')
+  },
+  unmount() {
+    console.log('unmount')
+  },
 }
 </script>
