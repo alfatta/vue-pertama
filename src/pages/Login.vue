@@ -1,4 +1,5 @@
 <template>
+  <MyCustomParagraph />
 
   <input type="text" ref="username" v-model="username">
   <input type="text" ref="password">
