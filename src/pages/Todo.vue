@@ -1,17 +1,28 @@
 <template>
 <TodoForm @update="saveTodo"/>
-<ul>
+<TodoList>
   <TodoItem
     v-for="(todoItem, i) in todoList"
     :key="i"
     :todoItem="todoItem"
     @delete="() => deleteTodo(i)" />
-</ul>
+</TodoList>
+
+<Button :notif="5"> Ini Tombol 1 </Button>
+<Button pill> Ini Tombol 2 </Button>
+<Button>
+  Ini Tombol 3
+  <template #prefix>
+    btn-
+  </template>
+</Button>
 </template>
 
 <script>
 import TodoForm from '../components/TodoForm.vue'
+import TodoList from '../components/TodoList.vue'
 import TodoItem from '../components/TodoItem.vue'
+import Button from '../components/Button.vue'
 
 export default {
   data() {
@@ -36,7 +47,9 @@ export default {
   },
   components: {
     TodoForm,
+    TodoList,
     TodoItem,
+    Button,
   }
 }
 </script>
