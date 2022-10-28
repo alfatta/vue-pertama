@@ -5,17 +5,17 @@ export default {
     {
       path: "/new-business",
       name: "home-new-busines",
-      component: () => import("../pages/Home.vue"),
+      component: () => import("../pages/Blog.vue"),
     },
     {
       path: "/profile",
       name: "home-profile",
-      component: () => import("../pages/Home.vue"),
+      component: () => import("../pages/Blog.vue"),
     },
     {
       path: "/news",
       name: "home-news",
-      component: () => import("../pages/Home.vue"),
+      component: () => import("../pages/Blog.vue"),
     },
   ],
 };

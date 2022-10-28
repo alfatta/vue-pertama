@@ -22,9 +22,9 @@ export default {
     return {
       isLogin: false,
       links: [
-        { title: "Home", url: "/" },
+        { title: "Login", url: "/" },
         { title: "Todo", url: "/todo" },
-        { title: "Login", url: "/login" },
+        { title: "Blog", url: "/blog" },
       ]
     }
   },
