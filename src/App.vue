@@ -1,17 +1,9 @@
 <template>
   <Header />
   <Navbar />
-  <button @click="menu = 'home'">Home</button>
-  <button @click="menu = 'login'">Login</button>
-  <button @click="menu = 'todo'">Todo</button>
   <div class="main">
     <div class="page">
-      <HomePage v-if="menu == 'home'" />
-      <LoginPage v-else-if="menu == 'login'" />
-      <TodoPage v-else-if="menu == 'todo'" />
-      <template v-else>
-        <h3>404 Not Found</h3>
-      </template>
+      <RouterView />
     </div>
     <div class="sidebar">
       <!-- <Widget :value="angka" @update="(n) => angka = n" /> -->
@@ -28,14 +20,11 @@ import Header from "./components/Header.vue";
 import Navbar from "./components/Navbar.vue";
 import Widget from "./components/Widget.vue";
 import ProductList from "./components/ProductList.vue";
-import HomePage from "./pages/Home.vue";
-import LoginPage from "./pages/Login.vue";
-import TodoPage from "./pages/Todo.vue";
+import { RouterView } from "vue-router";
 
 export default {
   data() {
     return {
-      menu: 'home',
       angka: 0,
       title: ''
     }
@@ -43,11 +32,9 @@ export default {
   components: {
     Header,
     Navbar,
-    HomePage,
     ProductList,
-    LoginPage,
-    TodoPage,
     Widget,
+    RouterView
   }
 };
 </script>
