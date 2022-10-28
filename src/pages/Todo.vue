@@ -26,6 +26,8 @@ import TodoList from '../components/TodoList.vue'
 import TodoItem from '../components/TodoItem.vue'
 import Button from '../components/Button.vue'
 
+import moment from 'moment'
+
 export default {
   data() {
     return {
@@ -36,7 +38,8 @@ export default {
     saveTodo(todo) {
       this.todoList.push({
         title: todo,
-        done: false
+        done: false,
+        createdAt: moment.utc().format()
       })
     },
     deleteTodo(index) {

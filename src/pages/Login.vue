@@ -47,9 +47,12 @@
 </template>
 
 <script>
-import Table from '../components/Table.vue';
-import TableRow from '../components/TableRow.vue';
-import TableCell from '../components/TableCell.vue';
+// import Table from '../components/Table.vue';
+// import TableRow from '../components/TableRow.vue';
+// import TableCell from '../components/TableCell.vue';
+
+import { Table, TableCell, TableRow } from '../components/Table.js'
+
 import Select from '../components/Select.vue';
 
 export default {
