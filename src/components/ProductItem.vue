@@ -18,29 +18,23 @@
 </div>
 </template>
 
-<script>
-export default {
-  emits: ['add'],
-  props: {
-    product: Object,
-    cart: Array
-  },
-  computed: {
-    inCartIndex() {
-      const productId = this.product.id
-      return this.cart.findIndex(function (i) {
-        return i.id == productId
-      })
-      // return this.cart.findIndex((i) => i.id == this.product.id)
-    },
-    inCart() {
-      return this.inCartIndex >= 0
-    },
-    inCartQty() {
-      return this.inCart ? this.cart[this.inCartIndex].qty : 0
-    }
-  }
-}
+<script setup>
+import { computed } from 'vue'
+
+
+defineEmits(['add', 'update'])
+const props = defineProps({
+  product: Object,
+  cart: Array
+})
+
+const inCartIndex = computed(() => {
+  const productId = props.product.id
+  return props.cart.findIndex((i) => i.id == productId)
+})
+const inCart = computed(() => inCartIndex.value >= 0)
+const inCartQty = computed(() => (inCart ? props.cart[inCartIndex.value].qty : 0))
+
 </script>
 
 <style scoped>

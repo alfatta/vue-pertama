@@ -3,7 +3,7 @@ export default {
   name: "home",
   children: [
     {
-      path: "/new-business",
+      path: "/home/new-business",
       name: "home-new-busines",
       component: () => import("../pages/Blog.vue"),
     },
