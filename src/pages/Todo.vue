@@ -2,10 +2,10 @@
 <TodoForm @update="saveTodo"/>
 <TodoList>
   <TodoItem
-    v-for="(todoItem, i) in todoList"
+    v-for="(todoItem, i) in todoStore.todos"
     :key="i"
     :todoItem="todoItem"
-    @delete="() => deleteTodo(i)" />
+    @delete="() => todoStore.deleteTodo(i)" />
 </TodoList>
 
 <Button :notif="5"> Ini Tombol 1 </Button>
@@ -17,7 +17,7 @@
   </template>
 </Button>
 
-<p>{{ todoList.join(', ') }}</p>
+<p>{{ todoStore.todos.join(', ') }}</p>
 </template>
 
 <script>
@@ -26,29 +26,13 @@ import TodoList from '../components/TodoList.vue'
 import TodoItem from '../components/TodoItem.vue'
 import Button from '../components/Button.vue'
 
-import moment from 'moment'
+import { useTodoStore } from '../stores/todo'
+
+import { mapStores } from 'pinia'
 
 export default {
-  data() {
-    return {
-      todoList: []
-    }
-  },
-  methods: {
-    saveTodo(todo) {
-      this.todoList.push({
-        title: todo,
-        done: false,
-        createdAt: moment.utc().format()
-      })
-    },
-    deleteTodo(index) {
-      // this.todoList.splice(index, 1)
-      this.todoList[index].done = true
-
-      this.todoList
-        .sort((x, y) => (x.done === y.done) ? 0 : x.done ? 1 : -1)
-    }
+  computed: {
+    ...mapStores(useTodoStore),
   },
   components: {
     TodoForm,

@@ -8,17 +8,22 @@
 </template>
 
 <script>
+import { mapStores } from 'pinia'
+import { useTodoStore } from '../stores/todo'
 export default {
   data() {
     return {
       todo: ''
     }
   },
+  computed: {
+    ...mapStores(useTodoStore)
+  },
   emits: ['update'],
   methods: {
     saveTodo() {
       if (this.todo.length > 0) {
-        this.$emit('update', this.todo)
+        this.todoStore.addTodo(this.todo)
         this.todo = ""
       }
     },

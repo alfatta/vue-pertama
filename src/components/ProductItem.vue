@@ -15,12 +15,16 @@
   <button @click="$emit('add', product.id)" v-else>
     Add to Cart
   </button>
+
+  <p>Ini nilai counter {{ counter.count }}</p>
 </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { useCounterStore } from '../stores/counter';
 
+const counter = useCounterStore()
 
 defineEmits(['add', 'update'])
 const props = defineProps({

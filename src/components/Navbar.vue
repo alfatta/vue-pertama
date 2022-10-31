@@ -11,12 +11,18 @@
         textDecoration: 'none',
       }">
       {{ link.title }}
+
+      <span v-if="link.url == '/todo' && todoStore.totalActiveTodos">
+        ({{ todoStore.totalActiveTodos }})
+      </span>
     </RouterLink>
   </template>
 </div>
 </template>
 
 <script>
+import { mapStores } from 'pinia';
+import { useTodoStore } from '../stores/todo';
 export default {
   data() {
     return {
@@ -28,6 +34,9 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapStores(useTodoStore)
+  }
 }
 </script>
 
