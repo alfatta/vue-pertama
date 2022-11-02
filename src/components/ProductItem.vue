@@ -1,6 +1,7 @@
 <template>
 <div class="product-item">
-  <img :src="product.img" />
+  <img src="https://via.placeholder.com/150" loading="eager" ref="placeholder" />
+  <img :src="product.img" loading="lazy" style="visibility: hidden; height: 0" ref="realimage" @load="swapImage" />
   <h4>{{ product.name }}</h4>
   <p>Rp.{{ product.price }}</p>
   <template v-if="inCart">
@@ -21,8 +22,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useCounterStore } from '../stores/counter';
+
+
+const placeholder = ref(null)
+const realimage = ref(null)
 
 const counter = useCounterStore()
 
@@ -38,6 +43,12 @@ const inCartIndex = computed(() => {
 })
 const inCart = computed(() => inCartIndex.value >= 0)
 const inCartQty = computed(() => (inCart ? props.cart[inCartIndex.value].qty : 0))
+const swapImage = () => {
+  placeholder.value.style.visibility = 'hidden'
+  placeholder.value.style.height = '0'
+  realimage.value.style.visibility = 'visible'
+  realimage.value.style.height = 'auto'
+}
 
 </script>
 

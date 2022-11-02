@@ -31,6 +31,7 @@ export default {
         { title: "Login", url: "/" },
         { title: "Todo", url: "/todo" },
         { title: "Blog", url: "/blog" },
+        { title: "XSS", url: "/xss" },
       ]
     }
   },

@@ -6,6 +6,16 @@ const router = createRouter({
   routes: [
     homeRoute,
     {
+      path: "/random",
+      name: "random",
+      component: () => import("../pages/Child.vue"),
+    },
+    {
+      path: "/xss",
+      name: "xss",
+      component: () => import("../pages/Xss.vue"),
+    },
+    {
       path: "/blog",
       name: "blog",
       component: () => import("../pages/Blog.vue"),

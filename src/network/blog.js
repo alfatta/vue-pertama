@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const getAllPost = (page = 1) =>
   axios({
@@ -19,7 +19,7 @@ const getPost = (id) =>
     method: "get",
     url: "/posts/" + id,
   });
-  
+
 const insertPost = (data) =>
   axios({
     method: "post",
